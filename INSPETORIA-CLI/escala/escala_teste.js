@@ -109,7 +109,7 @@ button.addEventListener("click", () => {
     if (fOut === "F") {
       folgaOuTrabalha = "Folga";
       span.classList = "cardFolg";
-      span.innerHTML = `Nesse dia você estará ${folgaOuTrabalha}`;
+      span.innerHTML = `${mesesAno[monthGetEnd]}<br/> ${diaSem[dayWeekEnd]}, dia ${diaEnd}<br/>${folgaOuTrabalha}<br/>`;
       divCard.appendChild(span);
       resCons.appendChild(divCard);
       console.log(divCard);
