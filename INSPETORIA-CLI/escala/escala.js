@@ -43,12 +43,13 @@ console.log(`hoje é ${diaSem[sem]}, dia ${dia} de ${mesesAno[mes]} `)
 //CALCULAR DIFERENCA DE DIAS
 const qtdDia = ()=> {
   
-let tip = tipValue.value
+var tip = tipValue.value
 tip = Number(tip)
 if(tip>0 && tip<6){
 
-let start = dataInin[tip -1]   
-let end = inputEnd.value
+var start = dataInin[tip -1]   
+var end = inputEnd.value
+console.log("DATA CONSULTA " + end)
 
 start = new Date(start)
 end   = new Date(end)
@@ -99,6 +100,8 @@ button.addEventListener("click", ()=>{
     console.log(`-------->>>>>>>`+ end)
     end = new Date(end)
     diaEnd = end.getDate()
+    let dayWeekEnd = end.getDay()
+    let monthGetEnd = end.getMonth()
     console.log(diaEnd)
 
 
@@ -114,7 +117,8 @@ button.addEventListener("click", ()=>{
     }else if(fOut === "T"){
       folgaOuTrabalha = "Trabalha"
       span.classList= "cardTrab"
-      span.innerHTML = `${mesesAno[mes]}<br/> ${diaSem[sem]} , dia ${dia}<br/>${folgaOuTrabalha} <br/>`
+      span.innerHTML = `${mesesAno[monthGetEnd]}<br/> ${diaSem[dayWeekEnd]} , dia ${diaEnd}<br/>${folgaOuTrabalha} <br/>`
+      console.log(diaEnd+"<<<<<<<<")
       divCard.appendChild(span)
       resCons.appendChild(divCard)
       console.log(divCard)
