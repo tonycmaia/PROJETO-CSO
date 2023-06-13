@@ -50,6 +50,11 @@
     margin: 0;
     border: none;
     font-family: 'Climate Crisis', cursive;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
 }
 
 .container {
