@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #buttons .btn{
+            font-weight: 100;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="buttons">
+        <span class="btn"><button onclick="divs.forEach(hide)" >Esconder</button></span>
+        <span class="btn"><button onclick="divs.forEach(show)">Mostrar</button></span>
+    </div>
+
+<div class="conteiner">
+    <div class="block">
+        <H1>Inspetoria cli</H1>
+        <ul id="lista">Trabalhadores</ul>
+
+    </div>
+
+
+</div>
+    <Script>
+
+
+        const workers = [
+
+            {nome:"tony",
+            tipologia:1,
+            cargo: "Agente de Segurança"},
+
+            {nome:"vieira",
+            tipologia: 2,
+            cargo:"Agente de Segurança"},
+
+            {nome:"cicero",
+            tipologia: 2,
+            cargo: "Agente de Segurança"},
+
+            {nome:"flopes",
+            tipologia:3,
+            cargo: "Agente de Segurança"},
+
+            {nome:"natanael",
+            tipologia: 1,
+            cargo: "Agente de Segurança"},
+
+            {nome:"tertuliandro",
+            tipologia: 5,
+            cargo:"Agente de Segurança"},
+
+            {nome:"fchagas",
+            tipologia: 4,
+            cargo: "Agente de Segurança"},
+
+            {nome:"jadson",
+            tipologia: 3,
+            cargo: "Agente de Segurança"},
+
+            {nome:"gomes lima",
+            tipologia: 4,
+            cargo: "Agente de Segurança"},
+
+            {nome:"mendes",
+            tipologia: 5,
+            cargo: "Agente de Segurança"},
+
+            {nome:"mauricio",
+            tipologia: 5,
+            cargo: "Agente de Segurança"},
+
+            {nome:"macedo",
+            tipologia: 1,
+            cargo: "Agente de Segurança"},
+
+            {nome:"Uilson",
+            tipologia: 3,
+            cargo: "Agente de Segurança"},
+
+            {nome:"Lennon",
+            tipologia: 2,
+            cargo: "Agente de Segurança"},
+
+            {nome:"Douglas",
+            tipologia: 4,
+            cargo: "Inspetor de Segurança"},
+        ]
+
+        console.log(workers.length)
+        function listarInsp(){
+        for ( let a /*index*/ = 0; a< workers.length; a++){
+            console.log(`${a +1}.${workers[a]}`)
+        }}
+
+        console.log()
+        listarInsp()
+
+        /*workers.forEach((value, index, array) => {
+            console.log(`${index +1}.${value}`)
+
+        })*/
+
+        const divs = Array.from(document.querySelectorAll(".block"))
+        const hide = el => el.style.display = "none"
+        const show = el => el.style.display = "block"
+
+
+        console.log("O valor que quero saber é " + workers.length)
+        const list = document.getElementById('inspLista')
+
+
+        const agentes = workers.map(itens => itens.nome)
+        
+
+
+        console.log(agentes)
+
+
+
+
+
+
+
+
+
+    </Script>
+</body>
+</html>
