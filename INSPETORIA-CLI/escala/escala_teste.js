@@ -4,10 +4,9 @@ const button = document.querySelector("button")
 const resCons = document.querySelector("#resCons")
 
 
-
-
 const diaSem = ["Dom","Seg","Ter","Qua","Qui","Sex","Sab"]
 const mesesAno =["Janeiro","Fevereiro","Março", "Abril", "Maio","Junho","Julho","Agosto","Setembro", "Outubro","Novembro", "Dezembro"]
+
 
 const folgas = [
     "F",
@@ -35,32 +34,35 @@ const dataInin=[
 "2023-01-01",
 ]
 
-let data = new Date()
-let dia = data.getDate()
-let sem = data.getDay()
-let mes = data.getMonth()+1
-console.log(`hoje é dia: ${dia} , ${diaSem[sem]} de ${mesesAno[mes]}`)
+const data = new Date()
+const dia = data.getDate()
+const sem = data.getDay()
+const mes = data.getMonth()
+console.log(`hoje é ${diaSem[sem]}, dia ${dia} de ${mesesAno[mes]} `)
 
+//CALCULAR DIFERENCA DE DIAS
 const qtdDia = ()=> {
   
-let tip = tipValue.value
+var tip = tipValue.value
 tip = Number(tip)
-
-console.log(tip)
 if(tip>0 && tip<6){
 
-let start = dataInin[tip -1]   
-let end = inputEnd.value
+var start = dataInin[tip -1]   
+var end = inputEnd.value
+console.log("DATA CONSULTA " + end)
 
 start = new Date(start)
 end   = new Date(end)
+
+
 console.log(end)
+
 
 //let data = new Date()
 //dia = data.getDate()
-console.log(`hoje é dia${dia}`)
+console.log(`------------${dia}`)
 
-let diffInTime = (end - start)
+let diffInTime = Math.abs(end - start)
 let timeInOnDay = 1000 * 60 * 60 * 24
 let diffInDays = diffInTime / timeInOnDay
 
@@ -74,54 +76,53 @@ return diffInDays
 var index = 0
 
 
+// ...
 
 
 
 
-
-
-
-
-
-button.addEventListener("click", ()=>{
-    
-    let tip= tipValue.value
-    // Check if there's already a result in the resCons element
-    const existingCard = resCons.querySelector(".cardFolga")
-    if (existingCard) {
-        existingCard.remove()
+button.addEventListener("click", () => {
+    const diffInDays = qtdDia();
+    let dif = diffInDays;
+    if (dif > 35) {
+      index = dif % 35;
+    } else {
+      index = dif;
     }
-
-    const diffInDays = qtdDia()
-    let dif = diffInDays
-    if(dif>35){
-        index = dif % 35
-    }else{
-        index = dif
+  
+    let fOut = folgas[index];
+    let folgaOuTrabalha = fOut;
+    let divCard = document.createElement("div");
+    divCard.classList = "cardFolga";
+  
+    let span = document.createElement("span");
+    let end = inputEnd.value;
+    console.log(`-------->>>>>>>` + end);
+    // Converter a data para o formato "yyyy-mm-dd"
+    const [dia, mes, ano] = end.split("/");
+    end = new Date(`${ano}-${mes}-${dia}`);
+    diaEnd = end.getDate();
+    let dayWeekEnd = end.getDay();
+    let monthGetEnd = end.getMonth();
+    console.log(diaEnd);
+  
+    if (fOut === "F") {
+      folgaOuTrabalha = "Folga";
+      span.classList = "cardFolg";
+      span.innerHTML = `Nesse dia você estará ${folgaOuTrabalha}`;
+      divCard.appendChild(span);
+      resCons.appendChild(divCard);
+      console.log(divCard);
+    } else if (fOut === "T") {
+      folgaOuTrabalha = "Trabalha";
+      span.classList = "cardTrab";
+      span.innerHTML = `${mesesAno[monthGetEnd]}<br/> ${diaSem[dayWeekEnd]}, dia ${diaEnd}<br/>${folgaOuTrabalha}<br/>`;
+      console.log(diaEnd + "<<<<<<<<");
+      divCard.appendChild(span);
+      resCons.appendChild(divCard);
+      console.log(divCard);
+    } else {
+      folgaOuTrabalha = "";
     }
-
-    let fOut = folgas[index]
-    let folgaOuTrabalha = fOut
-    let divCard = document.createElement("div")
-    divCard.classList="cardFolga"
-        
-    let span = document.createElement("span")
-    
-    if(fOut === "F"){
-        folgaOuTrabalha = "Folgando"
-        span.classList= "cardFolg"
-        span.innerHTML = `Nesse dia você estará ${folgaOuTrabalha}`
-        divCard.appendChild(span)
-        resCons.appendChild(divCard)
-
-    }else if(fOut === "T"){
-        folgaOuTrabalha = "Trabalhando"
-        span.classList= "cardTrab"
-        span.innerHTML = `${mesesAno[mes] }<br/> ${diaSem[sem]} dia ${dia}<br/>${folgaOuTrabalha} <br/> Tipologia${tip}`
-        divCard.appendChild(span)
-        resCons.appendChild(divCard)
-
-    }else{
-        folgaOuTrabalha = ""
-    }
-})
+  });
+  
