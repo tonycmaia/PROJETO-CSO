@@ -89,7 +89,8 @@ button.addEventListener("click", () => {
     } else {
       index = dif;
     }
-  
+    
+    let tip = tipValue.value
     let fOut = folgas[index];
     let folgaOuTrabalha = fOut;
     let divCard = document.createElement("div");
@@ -109,14 +110,26 @@ button.addEventListener("click", () => {
     if (fOut === "F") {
       folgaOuTrabalha = "Folga";
       span.classList = "cardFolg";
-      span.innerHTML = `${mesesAno[monthGetEnd]}<br/> ${diaSem[dayWeekEnd]}, dia ${diaEnd}<br/>${folgaOuTrabalha}<br/>`;
+      span.innerHTML = `
+      <p>${mesesAno[monthGetEnd]}</p>
+      <p>${diaSem[dayWeekEnd]}, dia: ${diaEnd}</p>
+      <p>${folgaOuTrabalha}</p>
+      <p>Tipologia: ${tip}</p>
+      `;
+
       divCard.appendChild(span);
       resCons.appendChild(divCard);
       console.log(divCard);
     } else if (fOut === "T") {
       folgaOuTrabalha = "Trabalha";
       span.classList = "cardTrab";
-      span.innerHTML = `${mesesAno[monthGetEnd]}<br/> ${diaSem[dayWeekEnd]}, dia ${diaEnd}<br/>${folgaOuTrabalha}<br/>`;
+      span.innerHTML = `
+      <p>${mesesAno[monthGetEnd]}</p>
+      <p>${diaSem[dayWeekEnd]}, dia: ${diaEnd}</p>
+      <p>${folgaOuTrabalha}</p>
+      <p>Tipologia: ${tip}</p>
+      `;
+      
       console.log(diaEnd + "<<<<<<<<");
       divCard.appendChild(span);
       resCons.appendChild(divCard);
