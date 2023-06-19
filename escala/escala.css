@@ -5,7 +5,8 @@
 }
 
 body{
-    background: linear-gradient(45deg, rgb(9, 49, 134), rgb(1, 18, 32) );
+    background: linear-gradient(45deg, rgb(238, 233, 204), rgb(181, 177, 235) );
+    height: 100vh;
 }
 
 .container{
@@ -25,10 +26,14 @@ body{
     border-radius: 30px;
     justify-content: center;
     align-items: center;
-    position: fixed;  
+    position: fixed;
+    -webkit-box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);
+    -moz-box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);
+    box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);  
 }
 
 .tipologia{
+    border: none;
     margin: 5px;
     width: 50px;
     border-radius: 10px;
@@ -36,6 +41,7 @@ body{
 }
 
 .input-data{
+    border: none;
     margin: 5px;
     border-radius: 10px;
     text-align: center;
@@ -43,9 +49,15 @@ body{
 }
 
 .button{
+    border: 0px;
     margin: 5px;
     border-radius: 10px;
     padding: 5px;
+}
+
+.button:hover{
+    background-color: aquamarine;
+    color: #fff;
 }
 
 .resCons{
