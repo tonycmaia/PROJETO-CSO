@@ -89,6 +89,37 @@ agentes.map((el)=>{
 //listarAgentes()
 
 
+var header = document.getElementById("header");
+var navigationHeader = document.getElementById("navigation_header");
+var content = document.getElementById("content");
+var showSidebar = false;
+
+function toggleSidebar(){
+    showSidebar = !showSidebar;
+    if(showSidebar){
+        navigationHeader.style.marginLeft= "-10vw";
+        navigationHeader.style.animationName = "showSidebar";
+        content.style.filter = "blur(5px)";
+    }else{
+        navigationHeader.style.marginLeft= "-100vw"; 
+        navigationHeader.style.animationName = "";
+        content.style.filter = "";
+    }
+}
 
 
- 
+function closeSidebar(){
+    if(showSidebar){
+        toggleSidebar();
+    }
+}
+
+
+window.addEventListener("resize",(e)=>{
+    if(window.innerWidth > 768 && showSidebar){
+        toggleSidebar();
+    }
+})
+
+
+
