@@ -76,8 +76,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 200px;
+    width: 80px;
+    height: 80px;
     border: 1px solid #ccc;
     border-radius: 10px;
     margin: 10px;
@@ -85,13 +85,13 @@ body{
 }
   
   .cardFolg {
-    padding: 25px;
+    padding: 5px;
     border-radius: 5px;
     background-color: rgb(13, 165, 38);
     color: rgb(255, 255, 255);
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 0.7rem;
     font-weight: bold;
     -webkit-box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);
     -moz-box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);
@@ -99,13 +99,13 @@ body{
   }
   
   .cardTrab {
-    padding: 25px;
+    padding: 5px;
     border-radius: 5px;
     background-color: rgb(242, 110, 110);
     color: rgb(255, 255, 255);
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 0.7rem;
     font-weight: bold;
     -webkit-box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);
     -moz-box-shadow: 14px 15px 11px -4px rgba(0,0,0,0.44);
